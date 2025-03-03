@@ -1,0 +1,56 @@
+{
+  "name": "@crbroughton/nuxt-ignore-folders",
+  "version": "0.0.0",
+  "description": "Ignore folders from file-based router",
+  "author": "Craig R Broughton",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crbroughton/nuxt-ignore-folders.git"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/module.mjs",
+      "require": "./dist/module.cjs"
+    }
+  },
+  "main": "./dist/module.cjs",
+  "types": "./dist/types.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepack": "nuxt-module-build build",
+    "dev": "nuxi dev playground",
+    "dev:build": "nuxi build playground",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
+    "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest watch",
+    "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit",
+    "changeset": "npx @changesets/cli",
+    "changeset:status": "npx @changesets/cli status --verbose",
+    "changeset:version": "npx @changesets/cli version"
+  },
+  "dependencies": {
+    "@nuxt/kit": "^3.15.4",
+    "magic-regexp": "^0.8.0"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.28.1",
+    "@nuxt/devtools": "^2.1.1",
+    "@nuxt/eslint-config": "^1.1.0",
+    "@nuxt/module-builder": "^0.8.4",
+    "@nuxt/schema": "^3.15.4",
+    "@nuxt/test-utils": "^3.17.1",
+    "@types/node": "latest",
+    "eslint": "^9.21.0",
+    "nuxt": "^3.15.4",
+    "typescript": "~5.8.2",
+    "vitest": "^3.0.7",
+    "vue-tsc": "^2.2.8"
+  }
+}
