@@ -1,6 +1,6 @@
 {
   "name": "@crbroughton/nuxt-ignore-folders",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Ignore folders from file-based router",
   "author": "Craig R Broughton",
   "license": "MIT",
